@@ -140,7 +140,7 @@ public class TipsActivity extends BaseActivity implements View.OnClickListener {
      */
     private void saveWallet(boolean launch) {
         String network = SPUtils.getString(Constants.NETWORK_ENVIRONMENT);
-        Agent agent = new Agent("Walk Wallet Cold", BuildConfig.VERSION_NAME, network);
+        Agent agent = new Agent("TV Wallet Cold", BuildConfig.VERSION_NAME, network);
         Wallet wallet = new Wallet(mSeed, network, agent);
         wallet.setPassword(mPassword);
         wallet.setSalt(UUID.randomUUID().toString());

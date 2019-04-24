@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Walk Wallet</string>
+    <string name="app_name">TV Wallet</string>
 
     <string name="next_step">Next</string>
     <string name="complete">Complete</string>
     <string name="clear">Clear</string>
     <string name="official_warning">Officials Hint</string>
     <string name="scan_tip">Align QR code within frame to scan</string>
-    <string name="welcome_use">Welcome to WALK WALLET</string>
+    <string name="welcome_use">Welcome to TV WALLET</string>
     <string name="welcome_tips">Please create a wallet first, or import a wallet</string>
     <string name="confirm">Confirm</string>
     <string name="password_input">Enter Password</string>
@@ -15,7 +15,7 @@
     <string name="copy_right">2018 V SYSTEMS ALL rights reserved</string>
     <string name="grant_permissions">Please grant all permissions</string>
     <string name="version">Version %1$s</string>
-    <string name="wallet_info">Walk Wallet Cold is reference implementation of high security cold storage for the V SYSTEMS blockchain network.It implements VSYS wallet format specification 1.0</string>
+    <string name="wallet_info">TV Wallet Cold is reference implementation of high security cold storage for the V SYSTEMS blockchain network.It implements VSYS wallet format specification 1.0</string>
     <string name="not_office_seed_title"> Unofficial mnemonic detected</string>
     <string name="not_office_seed_tips">Mnemonic words from unknown sources can completely lose your assets. Still using the mnemonic?</string>
     <string name="cancel">Cancel</string>
@@ -58,7 +58,7 @@
 
     <!--wallet create start-->
     <string name="wallet_set_password">Set password</string>
-    <string name="wallet_create_tips">Walk Wallet does not store your password.It cannot be recovered if forgotten.Please keep it properly</string>
+    <string name="wallet_create_tips">TV Wallet does not store your password.It cannot be recovered if forgotten.Please keep it properly</string>
     <string name="wallet_create_password_label">Craeate wallet password</string>
     <string name="wallet_create_password_tips">Please input at least 8 characters</string>
     <string name="wallet_create_confirm_password_label">Confirm wallet password</string>

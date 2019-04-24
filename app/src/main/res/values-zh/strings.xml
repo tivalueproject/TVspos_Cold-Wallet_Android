@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Walk Wallet</string>
+    <string name="app_name">TV Wallet</string>
 
     <string name="next_step">下一步</string>
     <string name="complete">完成</string>
     <string name="clear">清空</string>
     <string name="official_warning">官方提示</string>
     <string name="scan_tip">将二维码放入框内，即可自动扫描</string>
-    <string name="welcome_use">欢迎使用WALK WALLET</string>
+    <string name="welcome_use">欢迎使用TV WALLET</string>
     <string name="welcome_tips">请先创建钱包，或导入钱包</string>
     <string name="confirm">确认</string>
     <string name="password_input">输入密码</string>
@@ -15,7 +15,7 @@
     <string name="copy_right">2018 V SYSTEMS ALL rights reserved</string>
     <string name="grant_permissions">请同意全部权限申请</string>
     <string name="version">Version %1$s</string>
-    <string name="wallet_info">Walk Wallet Cold是参考V SYSTEMS区块链网络，而实现的一款高安全性的冷钱包。它实现了VSYS钱包格式规范1.0。</string>
+    <string name="wallet_info">TV Wallet Cold是参考V SYSTEMS区块链网络，而实现的一款高安全性的冷钱包。</string>
     <string name="not_office_seed_title">检测到非官方来源的助记词</string>
     <string name="not_office_seed_tips">这是一个非官方来源的助记词，未知来源的助记词可能使您的资产完全丢失。仍然使用该助记词？</string>
     <string name="cancel">取消</string>
@@ -58,7 +58,7 @@
 
     <!--wallet create start-->
     <string name="wallet_set_password">设置密码</string>
-    <string name="wallet_create_tips">请牢记您的密码！Walk Wallet不存储用户密码，无法提供找回功能</string>
+    <string name="wallet_create_tips">请牢记您的密码！TV Wallet不存储用户密码，无法提供找回功能</string>
     <string name="wallet_create_password_label">创建钱包密码</string>
     <string name="wallet_create_password_tips">请输入至少8位字符</string>
     <string name="wallet_create_confirm_password_label">确认钱包密码</string>
@@ -139,6 +139,6 @@
     <!--monitor end-->
 
     <!--init start-->
-    <string name="wallet_init_official_warning_dialog_msg">为保证您的个人财产安全，请务必确保您的钱包APP来自VSYS官方网站v.systems下载</string>
+    <string name="wallet_init_official_warning_dialog_msg">为保证您的个人财产安全，请务必确保您的钱包APP来自TV官方网站t.top下载</string>
     <!--init end-->
 </resources>
