@@ -15,7 +15,7 @@
     <string name="copy_right">2018 V SYSTEMS ALL rights reserved</string>
     <string name="grant_permissions">请同意全部权限申请</string>
     <string name="version">Version %1$s</string>
-    <string name="wallet_info">TV Wallet Cold是参考V SYSTEMS区块链网络，而实现的一款高安全性的冷钱包。</string>
+    <string name="wallet_info">TV Wallet Cold是一款高安全性的冷钱包。</string>
     <string name="not_office_seed_title">检测到非官方来源的助记词</string>
     <string name="not_office_seed_tips">这是一个非官方来源的助记词，未知来源的助记词可能使您的资产完全丢失。仍然使用该助记词？</string>
     <string name="cancel">取消</string>
