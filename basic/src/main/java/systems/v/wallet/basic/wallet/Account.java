@@ -2,6 +2,17 @@ package systems.v.wallet.basic.wallet;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import org.whispersystems.curve25519.Curve25519;
+import org.whispersystems.curve25519.Curve25519KeyPair;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Map;
+import java.util.HashMap;
+
+import systems.v.vsys.Vsys;
+import systems.v.wallet.basic.utils.Base58;
+
 public class Account implements AccountBalance {
     private long nonce;
     private String network;
@@ -22,12 +33,39 @@ public class Account implements AccountBalance {
     public Account() {
     }
 
-    public Account(String seed, long nonce, String network, systems.v.vsys.Account account) {
+    public static String createAddress(String seed,long nonce ,String network,String version){
+        String strSeed = String.valueOf(nonce) + seed;
+        byte[] btSeed = Vsys.hashChain(strSeed.getBytes());
+
+        MySecureRandomProvider pri = new MySecureRandomProvider();
+        try {
+            pri.SetBytes(MessageDigest.getInstance("SHA-256").digest(btSeed));
+        } catch (NoSuchAlgorithmException e) {
+        }
+
+        Curve25519 cipher = Curve25519.getInstance(Curve25519.BEST,pri);
+        Curve25519KeyPair pair = cipher.generateKeyPair();
+
+        byte[] btPublicKey = Vsys.hashChain(pair.getPublicKey());
+        byte[] btWithoutCheck = new byte[Wallet.AddressLength - Wallet.ChecksumLength];
+        btWithoutCheck[0] = (byte)(Integer.parseInt(version));
+        btWithoutCheck[1] = (byte)network.hashCode();
+        System.arraycopy(btPublicKey, 0, btWithoutCheck, 2, Wallet.HashLength);
+
+        byte[] btCheck = Vsys.hashChain(btWithoutCheck);
+        byte[] btAddress = new byte[Wallet.AddressLength];
+        System.arraycopy(btWithoutCheck, 0, btAddress, 0, Wallet.AddressLength - Wallet.ChecksumLength);
+        System.arraycopy(btCheck, 0, btAddress, Wallet.AddressLength - Wallet.ChecksumLength, Wallet.ChecksumLength);
+
+        return Base58.encode(btAddress);
+    }
+
+    public Account(String seed, long nonce, String network,String version, systems.v.vsys.Account account) {
         this.seed = seed;
         this.nonce = nonce;
         this.network = network;
         this.account = account;
-        this.address = account.address();
+        this.address = createAddress(seed,nonce,network,version);
         this.publicKey = account.publicKey();
     }
 

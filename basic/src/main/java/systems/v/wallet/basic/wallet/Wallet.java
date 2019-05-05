@@ -9,11 +9,19 @@ import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import java.util.ArrayList;
 
 import systems.v.vsys.Vsys;
+import systems.v.wallet.basic.utils.Base58;
+
 
 public class Wallet {
 
     public static final String TEST_NET = Vsys.NetworkTestnet;
-    public static final String MAIN_NET = Vsys.NetworkMainnet;
+    //public static final String MAIN_NET = Vsys.NetworkMainnet;
+    public static final String MAIN_NET = ";";
+    public static final String VERSION = "29";
+
+    static final int  ChecksumLength = 4;
+    static final int  HashLength = 20;
+    static final int  AddressLength = 1 + 1 + ChecksumLength + HashLength;
 
     private String seed = "";
     private long nonce = 0;
@@ -58,7 +66,7 @@ public class Wallet {
         if (num > 0) {
             for (long i = nonce; i < nonce + num; i++) {
                 systems.v.vsys.Wallet wallet = Vsys.newWallet(seed, network);
-                Account account = new Account(seed, nonce, network, wallet.generateAccount(i));
+                Account account = new Account(seed, nonce, network, VERSION, wallet.generateAccount(i));
                 Log.d(TAG, account.toString());
                 accounts.add(account);
             }
@@ -72,7 +80,7 @@ public class Wallet {
         systems.v.vsys.Wallet wallet = Vsys.newWallet(seed, network);
         accounts.clear();
         for (long i = 0; i < nonce; i++) {
-            Account account = new Account(seed, nonce, network, wallet.generateAccount(i));
+            Account account = new Account(seed, i, network,VERSION, wallet.generateAccount(i));
             Log.d(TAG, account.toString());
             accounts.add(account);
         }
@@ -94,7 +102,29 @@ public class Wallet {
     }
 
     public static boolean validateAddress(String address) {
-        return Vsys.validateAddress(address);
+//        return Vsys.validateAddress(address);
+        byte[] btAddress = Base58.decode(address);
+        if (btAddress[0] != Integer.parseInt(VERSION)){
+            return false;
+        }else if (btAddress[1] != (byte)MAIN_NET.hashCode()){
+            return false;
+        }else if (btAddress.length != AddressLength){
+            return false;
+        }else {
+            byte[] btCheck = new byte[ChecksumLength];
+            System.arraycopy(btAddress, HashLength + 2, btCheck, 0, ChecksumLength);
+
+            byte[] btWithoutCheck = new byte[AddressLength - ChecksumLength];
+            System.arraycopy(btAddress, 0, btWithoutCheck, 0, AddressLength - ChecksumLength);
+
+            byte[] btCheckResult = Vsys.hashChain(btWithoutCheck);
+            for(int i = 0; i < ChecksumLength; i++){
+                if(btCheck[i] != btCheckResult[i]){
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
     public static boolean validateSeedPhrase(String seed) {
