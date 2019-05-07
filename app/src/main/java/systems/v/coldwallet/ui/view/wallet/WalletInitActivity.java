@@ -99,13 +99,11 @@ public class WalletInitActivity extends BaseActivity implements View.OnClickList
                 break;
             case R.id.tv_word_import:
                 // import seed
-                //NetworkActivity.launch(mActivity, NetworkActivity.TYPE_IMPORT);
-                ImportSeedActivity.launch(mActivity);
+                NetworkActivity.launch(mActivity, NetworkActivity.TYPE_IMPORT);
                 break;
             case R.id.tv_create_wallet:
                 // create wallet
-                //NetworkActivity.launch(mActivity, NetworkActivity.TYPE_CREATE);
-                SetPasswordActivity.launch(mActivity);
+                NetworkActivity.launch(mActivity, NetworkActivity.TYPE_CREATE);
                 break;
             case R.id.iv_close_import:
                 mBinding.llWalletInitContainer.setVisibility(View.VISIBLE);
