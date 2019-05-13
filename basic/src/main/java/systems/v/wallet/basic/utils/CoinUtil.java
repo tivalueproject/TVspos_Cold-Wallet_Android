@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public class CoinUtil {
 
-    private static final String UNIT = "VSYS";
+    private static final String UNIT = "TV";
     private static final BigDecimal MAX_LONG = new BigDecimal(Long.MAX_VALUE).movePointLeft(8);
 
     public static String format(long amount) {
