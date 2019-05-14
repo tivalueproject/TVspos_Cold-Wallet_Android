@@ -15,7 +15,7 @@
     <string name="copy_right">2018 V SYSTEMS ALL rights reserved</string>
     <string name="grant_permissions">Please grant all permissions</string>
     <string name="version">Version %1$s</string>
-    <string name="wallet_info">TV Wallet Cold is reference implementation of high security cold storage for the V SYSTEMS blockchain network.It implements VSYS wallet format specification 1.0</string>
+    <string name="wallet_info">TV Wallet Cold is reference implementation of high security cold storage for the TV blockchain network.It implements TV wallet format specification 1.0</string>
     <string name="not_office_seed_title"> Unofficial mnemonic detected</string>
     <string name="not_office_seed_tips">Mnemonic words from unknown sources can completely lose your assets. Still using the mnemonic?</string>
     <string name="cancel">Cancel</string>
@@ -120,8 +120,8 @@
     <string name="network_warning">After the wallet is successfully created, the network cannot be changed</string>
     <string name="network_main_net">Mainnet</string>
     <string name="network_test_net">Testnet</string>
-    <string name="network_main_net_caption">Under the formal network environment, users can safely store the real assets of VSYS. This environment is suitable for ordinary users\' daily use.</string>
-    <string name="network_test_net_caption">Under the test network environment, users are not allowed to store the real assets of VSYS safely. This environment is suitable for developers to do simulation test. If you are not a professional developer, you are recommended to use the formal environment</string>
+    <string name="network_main_net_caption">Under the formal network environment, users can safely store the real assets of TV. This environment is suitable for ordinary users\' daily use.</string>
+    <string name="network_test_net_caption">Under the test network environment, users are not allowed to store the real assets of TV safely. This environment is suitable for developers to do simulation test. If you are not a professional developer, you are recommended to use the formal environment</string>
     <string name="network_switch_to_test_net">Click to switch to the developer test environment</string>
     <string name="network_switch_to_main_net">Click to switch back to the formal environment</string>
     <string name="network_switch_warning">The test environment is only available for developers to test. Are you sure you want to use it?</string>
@@ -139,6 +139,6 @@
     <!--monitor end-->
 
     <!--init start-->
-    <string name="wallet_init_official_warning_dialog_msg">To ensure the security of your personal property, please make sure that your wallet APP is downloaded from systems, the official website of VSYS</string>
+    <string name="wallet_init_official_warning_dialog_msg">To ensure the security of your personal property, please make sure that your wallet APP is downloaded from systems, the official website of TV</string>
     <!--init end-->
 </resources>

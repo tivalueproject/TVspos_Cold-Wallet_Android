@@ -120,8 +120,8 @@
     <string name="network_warning">成功创建钱包后，网络环境将不能进行修改</string>
     <string name="network_main_net">正式环境</string>
     <string name="network_test_net">测试环境</string>
-    <string name="network_main_net_caption">在正式网络环境下，用户可进行VSYS现实资产的安全存储，此环境适用于普通用户日常使用</string>
-    <string name="network_test_net_caption">在测试网络环境下，用户不可进行VSYS真实资产的安全存储，此环境适用于开发者做模拟测试使用，若非专业开发者，建议您使用正式环境</string>
+    <string name="network_main_net_caption">在正式网络环境下，用户可进行TV现实资产的安全存储，此环境适用于普通用户日常使用</string>
+    <string name="network_test_net_caption">在测试网络环境下，用户不可进行TV真实资产的安全存储，此环境适用于开发者做模拟测试使用，若非专业开发者，建议您使用正式环境</string>
     <string name="network_switch_to_test_net">切换至开发者测试环境</string>
     <string name="network_switch_to_main_net">切换至普通用户正式环境</string>
     <string name="network_switch_warning">测试环境仅提供给开发者做测试，您是否确认使用?</string>
