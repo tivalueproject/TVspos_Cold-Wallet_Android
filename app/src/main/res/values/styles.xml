@@ -12,7 +12,7 @@
 
     <style name="AppTheme.Splash" parent="AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowBackground">@drawable/bg_start</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="Dialog" parent="android:style/Theme.Dialog">
