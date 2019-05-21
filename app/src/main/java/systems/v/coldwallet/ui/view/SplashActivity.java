@@ -1,7 +1,10 @@
 package systems.v.coldwallet.ui.view;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -105,6 +108,21 @@ public class SplashActivity extends BaseActivity {
                             System.out.println("update download apk progress" + integers);
                         }})
                     .register();
+            if(!isConnectIsNomarl()){
+                launch();
+            }
+        }
+    }
+
+    private boolean isConnectIsNomarl() {
+        ConnectivityManager ConnectivityManager = (android.net.ConnectivityManager) mActivity
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = ConnectivityManager.getActiveNetworkInfo();
+
+        if (netInfo == null) {
+            return false;
+        } else {
+            return netInfo.isAvailable();
         }
     }
 
