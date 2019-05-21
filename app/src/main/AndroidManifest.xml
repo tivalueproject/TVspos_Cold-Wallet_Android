@@ -9,6 +9,17 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
+    <!-- 必选-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取网络状态 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络通信-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />  <!-- 获取设备信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取MAC地址-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读写sdcard，storage等等 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 允许程序录制音频 -->
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
@@ -40,6 +51,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- 可选-->
+        <activity android:name="com.pgyersdk.feedback.FeedbackActivity"/>
+        <!-- Jar 包集成的方式 必填 -->
+        <provider
+            android:name="com.pgyersdk.PgyerProvider"
+            android:authorities="systems.v.coldWallet.com.pgyer.provider"
+            android:exported="false"/>
+        <!-- 必填 -->
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="83f86064b4f05d507d1d956447947463" >
+        </meta-data>
+
         <activity
             android:name="systems.v.coldwallet.ui.view.SplashActivity"
             android:screenOrientation="portrait"

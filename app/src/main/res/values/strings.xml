@@ -27,6 +27,8 @@
     <string name="continue_input">Continue</string>
     <string name="qr_cod_tips">(only for verifying when make transactions)</string>
 
+    <string name="update_title">Discover the new version and update it immediately</string>
+
     <!--settings start-->
     <string name="setting_label">Settings</string>
     <string name="setting_wallet_manage">Wallet management</string>

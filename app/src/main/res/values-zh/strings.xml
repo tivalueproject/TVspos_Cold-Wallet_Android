@@ -27,6 +27,8 @@
     <string name="continue_input">重新输入</string>
     <string name="qr_cod_tips">（此地址仅供您转账时核对信息）</string>
 
+    <string name="update_title">发现新版本，是否立即更新</string>
+
     <!--settings start-->
     <string name="setting_label">设置</string>
     <string name="setting_wallet_manage">钱包管理</string>

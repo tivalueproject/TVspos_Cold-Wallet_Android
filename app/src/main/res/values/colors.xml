@@ -21,6 +21,8 @@
     <color name="black_6">#99000000</color>
     <color name="black_5">#aa000000</color>
     <color name="black_3">#dd000000</color>
+    <color name="black_7">#666666</color>
+    <color name="black_8">#222222</color>
     <color name="transparent">#00000000</color>
     <color name="color_orange">#FF8737</color>
     <color name="color_border">#36363D</color>
