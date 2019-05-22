@@ -11,7 +11,7 @@
         android:layout_marginStart="@dimen/normal_padding"
         android:layout_marginEnd="@dimen/normal_padding"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_account"
+        android:background="@color/orange"
         android:paddingStart="@dimen/normal_padding"
         android:paddingTop="26dp"
         android:paddingEnd="@dimen/normal_padding"

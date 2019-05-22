@@ -76,7 +76,7 @@ public class ImportSeedActivity extends BaseActivity {
                 } else {
                     mBinding.tvNext.setEnabled(true);
                     mBinding.tvNext.setBackground(ContextCompat.getDrawable(mActivity, R.drawable.bg_orange_radius_6));
-                    mBinding.tvNext.setTextColor(ContextCompat.getColor(mActivity, R.color.text_strong));
+                    mBinding.tvNext.setTextColor(ContextCompat.getColor(mActivity, R.color.bg_color));
                 }
             }
 

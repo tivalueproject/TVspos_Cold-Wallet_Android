@@ -81,7 +81,7 @@
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/bg_theme_black_radius_6"
                 android:gravity="center"
-                android:textColor="@color/text_strong"
+                android:textColor="@color/orange"
                 android:textSize="16sp"
                 tools:text="@string/wallet_backup_later" />
         </LinearLayout>

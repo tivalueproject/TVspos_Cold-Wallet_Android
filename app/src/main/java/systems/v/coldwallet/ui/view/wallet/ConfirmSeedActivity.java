@@ -140,7 +140,7 @@ public class ConfirmSeedActivity extends BaseActivity {
         final TextView textView = (TextView) LayoutInflater.from(mActivity).inflate(R.layout.textview, null, false);
         textView.setText(text);
         if (isInputWord) {
-            textView.setTextColor(ContextCompat.getColor(this, R.color.text_strong));
+            textView.setTextColor(ContextCompat.getColor(this, R.color.bg_color));
             textView.setBackgroundResource(R.drawable.bg_unable_radius_6);
             textView.setVisibility(View.GONE);
             mInputTextList.add(textView);

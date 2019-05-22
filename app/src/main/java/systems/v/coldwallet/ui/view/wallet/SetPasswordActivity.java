@@ -86,7 +86,7 @@ public class SetPasswordActivity extends BaseActivity {
                 }
                 if (s.toString().length() >= 8) {
                     mBinding.tvComplete.setBackgroundResource(R.drawable.bg_orange_radius_6);
-                    mBinding.tvComplete.setTextColor(ContextCompat.getColor(mActivity, R.color.text_strong));
+                    mBinding.tvComplete.setTextColor(ContextCompat.getColor(mActivity, R.color.bg_color));
                 } else {
                     mBinding.tvComplete.setBackgroundResource(R.drawable.bg_unable_radius_6);
                     mBinding.tvComplete.setTextColor(ContextCompat.getColor(mActivity, R.color.text_unable));

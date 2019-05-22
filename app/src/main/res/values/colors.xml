@@ -5,7 +5,7 @@
     <color name="colorAccent">@color/orange</color>
 
     <color name="orange">#FF6565</color>
-    <color name="bg_color">#1E1E24</color>
+    <color name="bg_color">#FFFFFF</color>
     <color name="bg_default">@color/bg_common</color>
     <color name="bg_common">@color/white</color>
     <color name="text_strong">@color/black_8</color>
@@ -26,7 +26,7 @@
     <color name="black_9">#999999</color>
     <color name="transparent">#00000000</color>
     <color name="color_orange">#FF6565</color>
-    <color name="color_border">#36363D</color>
+    <color name="color_border">#FF6565</color>
     <color name="password_strength1">#BB020C</color>
     <color name="password_strength2">#F46514</color>
     <color name="password_strength3">#E6D20B</color>
@@ -34,8 +34,8 @@
     <color name="password_strength5">#19B425</color>
 
 
-    <color name="text_unable">#595961</color>
-    <color name="bg_unable">#FF6565</color>
+    <color name="text_unable">#AEAEAE</color>
+    <color name="bg_unable">#EEEEEE</color>
 
     <!--account color-->
     <color name="color_account_orange">#FF7C7C</color>
