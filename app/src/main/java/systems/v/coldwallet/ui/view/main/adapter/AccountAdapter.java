@@ -147,7 +147,8 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.AccountH
     }
 
     private int getIndexDrawable(int index) {
-        int pos = index % mDrawables.length;
+        //int pos = index % mDrawables.length;
+        int pos = 0;
         return mDrawables[pos];
     }
 

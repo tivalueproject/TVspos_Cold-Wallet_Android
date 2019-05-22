@@ -20,7 +20,7 @@
                 android:layout_gravity="start"
                 android:layout_marginStart="@dimen/normal_padding"
                 android:text="@string/setting_label"
-                android:textColor="@color/text_strong"
+                android:textColor="@color/black_8"
                 android:textSize="28sp" />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_height="48dp"
                 android:background="@drawable/ripple_white"
                 android:divider="@color/divider"
-                app:common_item_divider_enabled="true"
+                app:common_item_divider_enabled="false"
                 app:common_item_left_icon="@drawable/ico_backup_word"
                 app:common_item_left_text="@string/setting_backup_word"
                 app:common_item_left_text_text_size="16sp"
@@ -93,13 +93,6 @@
                     android:track="@drawable/switch_track" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/normal_padding"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="@dimen/normal_padding"
-                android:background="@color/divider" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -155,13 +148,6 @@
                     android:track="@drawable/switch_track" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/normal_padding"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="@dimen/normal_padding"
-                android:background="@color/divider" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -172,21 +158,13 @@
                 android:textColor="@color/text_weak"
                 android:textSize="14sp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/normal_padding"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="@dimen/normal_padding"
-                android:background="@color/divider" />
-
             <systems.v.coldwallet.ui.widget.CommonItem
                 android:id="@+id/ci_network"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/ripple_white"
                 android:divider="@color/divider"
-                app:common_item_divider_enabled="true"
+                app:common_item_divider_enabled="false"
                 app:common_item_left_icon="@drawable/ico_web"
                 app:common_item_left_text="@string/network_environment"
                 app:common_item_left_text_text_size="16sp"
@@ -198,7 +176,7 @@
                 android:layout_height="48dp"
                 android:background="@drawable/ripple_white"
                 android:divider="@color/divider"
-                app:common_item_divider_enabled="true"
+                app:common_item_divider_enabled="false"
                 app:common_item_left_icon="@drawable/ico_about"
                 app:common_item_left_text="@string/setting_about_us"
                 app:common_item_left_text_text_size="16sp"
@@ -212,10 +190,10 @@
                 android:layout_height="48dp"
                 android:background="@drawable/ripple_white"
                 android:divider="@color/divider"
-                app:common_item_divider_enabled="true"
+                app:common_item_divider_enabled="false"
                 app:common_item_left_icon="@drawable/ico_cancel"
                 app:common_item_left_text="@string/setting_logout"
-                app:common_item_left_text_text_color="@color/text_strong"
+                app:common_item_left_text_text_color="@color/orange"
                 app:common_item_left_text_text_size="16sp"
                 app:common_item_right_text_text_size="14sp" />
         </LinearLayout>

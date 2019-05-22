@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:gravity="start"
-                    android:textColor="@color/text_strong"
+                    android:textColor="@color/black_7"
                     android:textSize="18sp" />
 
                 <TextView

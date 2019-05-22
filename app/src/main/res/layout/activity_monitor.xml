@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="32dp"
-            app:common_item_divider_enabled="true"
+            app:common_item_divider_enabled="false"
             app:common_item_left_text="@string/monitor_wifi"
             app:common_item_left_text_text_size="16sp"
             app:common_item_right_text_text_size="14sp" />
@@ -53,7 +53,7 @@
             android:id="@+id/ci_mobile"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            app:common_item_divider_enabled="true"
+            app:common_item_divider_enabled="false"
             app:common_item_left_text="@string/monitor_mobile_data"
             app:common_item_left_text_text_size="16sp"
             app:common_item_right_text_text_size="14sp" />
@@ -62,7 +62,7 @@
             android:id="@+id/ci_bluetooth"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            app:common_item_divider_enabled="true"
+            app:common_item_divider_enabled="false"
             app:common_item_left_text="@string/monitor_bluetooth"
             app:common_item_left_text_text_size="16sp"
             app:common_item_right_text_text_size="14sp" />
@@ -82,7 +82,7 @@
             android:background="@drawable/bg_orange_radius_6"
             android:gravity="center"
             android:text="@string/monitor_recheck"
-            android:textColor="@color/text_strong"
+            android:textColor="@color/white"
             android:textSize="16sp" />
     </LinearLayout>
 </layout>

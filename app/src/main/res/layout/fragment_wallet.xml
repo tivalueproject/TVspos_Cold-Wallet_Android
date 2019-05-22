@@ -20,7 +20,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="28dp"
                 android:text="@string/wallet_my_wallet"
-                android:textColor="@color/text_strong"
+                android:textColor="@color/black_8"
                 android:textSize="28sp" />
 
             <ImageView

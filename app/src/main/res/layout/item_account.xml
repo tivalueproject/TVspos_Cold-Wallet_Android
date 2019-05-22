@@ -55,7 +55,7 @@
                     android:id="@+id/tv_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/text_strong"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <TextView
@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textColor="@color/text_weak"
+                    android:textColor="@color/white"
                     android:textSize="14sp"
                     tools:text="ARAbwC******83NncT" />
             </LinearLayout>
@@ -104,7 +104,7 @@
             android:layout_marginStart="10dp"
             android:gravity="center_horizontal"
             android:text="@string/wallet_add_more_account"
-            android:textColor="@color/text_strong"
+            android:textColor="@color/black_7"
             android:textSize="15sp" />
     </LinearLayout>
 </FrameLayout>
