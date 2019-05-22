@@ -7,7 +7,7 @@
         android:background="@color/bg_common"
         android:orientation="vertical">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@color/bg_common"
@@ -23,7 +23,17 @@
                 android:paddingRight="@dimen/normal_padding"
                 android:src="@drawable/ico_back" />
 
-        </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="20dp"
+                android:text="@string/word_backup_word"
+                android:textColor="@color/black_8"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -34,17 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/word_backup_word"
-                    android:textColor="@color/white"
-                    android:textSize="28sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
