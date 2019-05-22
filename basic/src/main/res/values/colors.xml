@@ -4,7 +4,7 @@
     <color name="basic_divider_dark">#45454d</color>
 
     <color name="basic_btn_colored_background_light">@color/basic_primary</color>
-    <color name="basic_btn_colored_background_dark">#FF6565</color>
+    <color name="basic_btn_colored_background_dark">#FFFFFF</color>
     <color name="basic_btn_border_color">@color/basic_divider_light</color>
 
     <color name="basic_dialog_background_light">#ffffff</color>

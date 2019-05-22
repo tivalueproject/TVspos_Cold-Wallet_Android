@@ -6,6 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ico_welcome" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,11 +70,11 @@
                 android:id="@+id/tv_import_wallet"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-
-                android:background="@drawable/bg_theme_black_radius_6"
+                style="@style/BasicButton.Bordered.Orange"
                 android:gravity="center"
                 android:text="@string/wallet_import"
-                android:textColor="@color/white"
+                android:textColor="@color/color_orange"
+                android:theme="@style/BasicButton.Bordered.Orange"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -99,7 +106,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_theme_black_radius_6"
+                android:background="@color/color_orange"
                 android:orientation="vertical">
 
                 <TextView

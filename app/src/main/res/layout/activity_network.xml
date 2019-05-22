@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/normal_padding"
                     android:layout_marginEnd="@dimen/normal_padding"
-                    android:background="@drawable/bg_unable_radius_6"
+                    android:background="@color/white"
                     android:onClick="@{click::onClick}"
                     android:orientation="horizontal"
                     android:paddingStart="@dimen/normal_padding"

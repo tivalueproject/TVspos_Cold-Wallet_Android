@@ -15,6 +15,12 @@
         <item name="android:windowBackground">@color/white</item>
     </style>
 
+    <style name="BasicButton.Bordered.Orange" parent="BasicButton.Bordered">
+        <item name="basic_btn_border_color">?attr/colorAccent</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="basic_btn_border_radius">6dp</item>
+    </style>
+
     <style name="Dialog" parent="android:style/Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>

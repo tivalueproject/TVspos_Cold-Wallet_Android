@@ -26,7 +26,7 @@
         <item name="basic_dialog_content_text_color">@color/basic_dialog_tertiary_text_dark
         </item>
         <item name="basic_dialog_positive_button_style">@style/BasicButton</item>
-        <item name="basic_dialog_negative_button_style">@style/BasicButton.Dark</item>
+        <item name="basic_dialog_negative_button_style">@style/BasicButton.Bordered</item>
     </style>
 
     <style name="BasicAlertDialog.Light" parent="BasicDialog.Light">
@@ -45,7 +45,7 @@
 
     <style name="BasicButton.Bordered" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/basic_btn_bordered_background</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item name="android:textAppearance">@style/BasicTextAppearance.AppCompat.Dark</item>
     </style>
 
     <style name="BasicButton.Dark" parent="BasicButton">
@@ -54,5 +54,9 @@
 
     <style name="BasicTextAppearance.AppCompat.Light" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@android:color/background_light</item>
+    </style>
+
+    <style name="BasicTextAppearance.AppCompat.Dark" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/background_dark</item>
     </style>
 </resources>
