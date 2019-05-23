@@ -10,7 +10,7 @@
     <color name="bg_common">@color/white</color>
     <color name="text_strong">@color/black_8</color>
     <color name="text_weak">#666666</color>
-    <color name="divider">#36363D</color>
+    <color name="divider">#E5E5E5</color>
     <color name="white_9">#E6FFFFFF</color>
     <color name="text_red">#E63939</color>
     <color name="text_hint">#4B4B52</color>
