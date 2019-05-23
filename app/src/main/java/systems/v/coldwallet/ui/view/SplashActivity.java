@@ -83,6 +83,7 @@ public class SplashActivity extends BaseActivity {
                             //更新检测失败回调
                             //更新拒绝（应用被下架，过期，不在安装有效期，下载次数用尽）以及无网络情况会调用此接口
                             Log.e("pgyer", "check update failed ", e);
+                            launch();
                         }
                     })
                     //注意 ：
