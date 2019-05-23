@@ -77,7 +77,7 @@
                     android:background="@drawable/bg_orange_radius_6"
                     android:gravity="center"
                     android:text="@string/confirm"
-                    android:textColor="@color/text_strong"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
 
             </LinearLayout>
