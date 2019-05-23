@@ -46,5 +46,5 @@
     <color name="color_account_purple2">#85239E</color>
     <color name="color_account_blue2">#039BE5</color>
     <color name="color_account_green2">#7CB342</color>
-    <color name="color_loading_bg">#16161A</color>
+    <color name="color_loading_bg">#FFFFFF</color>
 </resources>
