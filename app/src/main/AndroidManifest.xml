@@ -67,7 +67,7 @@
         <!--</meta-data>-->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="systems.v.wallet.FileProvider"
+            android:authorities="systems.v.coldwallet.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

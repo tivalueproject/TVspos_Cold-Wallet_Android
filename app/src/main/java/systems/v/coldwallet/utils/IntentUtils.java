@@ -41,7 +41,7 @@ public class IntentUtils {
     public static void installApk(Context context, File file) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         if (Build.VERSION.SDK_INT >= 24) {
-            Uri apkUri = FileProvider.getUriForFile(context, "systems.v.wallet.FileProvider", file);
+            Uri apkUri = FileProvider.getUriForFile(context, "systems.v.coldwallet.FileProvider", file);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
