@@ -3,10 +3,15 @@ package systems.v.coldwallet.ui.view;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import com.pgyersdk.crash.PgyCrashManager;
@@ -15,6 +20,17 @@ import com.pgyersdk.update.DownloadFileListener;
 import com.pgyersdk.update.PgyUpdateManager;
 import com.pgyersdk.update.UpdateManagerListener;
 import com.pgyersdk.update.javabean.AppBean;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.List;
+import java.util.Map;
 
 import systems.v.coldwallet.R;
 import systems.v.coldwallet.ui.BaseActivity;
@@ -26,6 +42,8 @@ import systems.v.wallet.basic.AlertDialog;
 import systems.v.wallet.basic.utils.FileUtil;
 
 public class SplashActivity extends BaseActivity {
+    static String  appUrl = "https://link-e-pro.oss-cn-beijing.aliyuncs.com/wallet/cold.wallet_release.apk";
+    static String  serverUrl = "http://47.75.180.164:8080/v1/appVsersion";
     private Dialog mUpdateDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,35 +52,23 @@ public class SplashActivity extends BaseActivity {
         if (!PermissionUtil.permissionGranted(this)) {
             PermissionUtil.checkPermissions(this);
         } else {
-            FeedbackActivity.setBarImmersive(true);
-            PgyCrashManager.register();
-            new PgyUpdateManager.Builder()
-                    .setForced(false)                //设置是否强制提示更新,非自定义回调更新接口此方法有用
-                    .setUserCanRetry(false)         //失败后是否提示重新下载，非自定义下载 apk 回调此方法有用
-                    .setDeleteHistroyApk(true)     // 检查更新前是否删除本地历史 Apk， 默认为true
-                    .setUpdateManagerListener(new UpdateManagerListener() {
-                        @Override
-                        public void onNoUpdateAvailable() {
-                            //没有更新是回调此方法
-                            Log.d("pgyer", "there is no new version");
-                            launch();
-                        }
-                        @Override
-                        public void onUpdateAvailable(AppBean appBean) {
-                            //有更新回调此方法
-                            Log.d("pgyer", "there is new version can update"
-                                    + "new versionCode is " + appBean.getVersionCode());
-                            //调用以下方法，DownloadFileListener 才有效；
-                            //如果完全使用自己的下载方法，不需要设置DownloadFileListener
-                            final AppBean appBeanEx = appBean;
+            final Handler handler = new Handler(){
+                @Override
+                public void handleMessage(Message msg){
+                    Bundle data = msg.getData();
+                    String val = data.getString("value");
+                    try {
+                        JSONObject object = new JSONObject(val);
+                        final  int serverVersion = object.getJSONObject("data").getInt("coldAppVersion");
+                        if(serverVersion > GetCurrentAppVersion()){
                             if (mUpdateDialog == null) {
-                                mUpdateDialog = new AlertDialog.Builder(mActivity, R.style.BasicAlertDialog_Dark)
+                                mUpdateDialog = new AlertDialog.Builder(mActivity)
                                         .setTitle(R.string.update_title)
                                         .setMessage("")
                                         .setPositiveButton(R.string.basic_alert_dialog_confirm, new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
-                                                PgyUpdateManager.downLoadApk(appBeanEx.getDownloadURL());
+                                                DownloadApp(appUrl,String.valueOf(serverVersion));
                                                 launch();
                                             }
                                         })
@@ -77,54 +83,131 @@ public class SplashActivity extends BaseActivity {
                             mUpdateDialog.setCanceledOnTouchOutside(false);
                             mUpdateDialog.show();
                         }
-
-                        @Override
-                        public void checkUpdateFailed(Exception e) {
-                            //更新检测失败回调
-                            //更新拒绝（应用被下架，过期，不在安装有效期，下载次数用尽）以及无网络情况会调用此接口
-                            Log.e("pgyer", "check update failed ", e);
+                        else {
                             launch();
                         }
-                    })
-                    //注意 ：
-                    //下载方法调用 PgyUpdateManager.downLoadApk(appBean.getDownloadURL()); 此回调才有效
-                    //此方法是方便用户自己实现下载进度和状态的 UI 提供的回调
-                    //想要使用蒲公英的默认下载进度的UI则不设置此方法
-                    .setDownloadFileListener(new DownloadFileListener() {
-                        @Override
-                        public void downloadFailed() {
-                            //下载失败
-                            System.out.println("download apk failed");
-                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
 
-                        @Override
-                        public void downloadSuccessful(Uri uri) {
-                            System.out.println("download apk success");
-                            // 使用蒲公英提供的安装方法提示用户 安装apk
-                            PgyUpdateManager.installApk(uri);
-                        }
-
-                        @Override
-                        public void onProgressUpdate(Integer... integers) {
-                            System.out.println("update download apk progress" + integers);
-                        }})
-                    .register();
-            if(!isConnectIsNomarl()){
-                launch();
-            }
+            new Thread(){
+                public void run(){
+                    String result = sendGet(serverUrl,"");
+                    Message msg = Message.obtain();
+                    Bundle data = new Bundle();
+                    data.putString("value",result);
+                    msg.setData(data);
+                    if (result.isEmpty()){
+                        launch();
+                    }else {
+                        handler.sendMessage(msg);
+                    }
+                }
+            }.start();
         }
     }
 
-    private boolean isConnectIsNomarl() {
-        ConnectivityManager ConnectivityManager = (android.net.ConnectivityManager) mActivity
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = ConnectivityManager.getActiveNetworkInfo();
-
-        if (netInfo == null) {
-            return false;
-        } else {
-            return netInfo.isAvailable();
+    private int GetCurrentAppVersion(){
+        int versionCode = 0;
+        try {
+            PackageInfo pkg = getPackageManager().getPackageInfo(getApplication().getPackageName(), 0);
+            versionCode = pkg.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        return  versionCode;
+    }
+
+    public static String sendGet(String url, String param)
+    {
+        String result = "";
+        BufferedReader in = null;
+        try {
+            String urlNameString = url + "?" + param;
+            URL realUrl = new URL(urlNameString);
+            // 打开和URL之间的连接
+            URLConnection connection = realUrl.openConnection();
+            // 设置通用的请求属性
+            connection.setRequestProperty("accept", "*/*");
+            connection.setRequestProperty("connection", "Keep-Alive");
+            connection.setConnectTimeout(3000);
+            connection.setRequestProperty("user-agent",
+                    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            // 建立实际的连接
+            connection.connect();
+            // 获取所有响应头字段
+            Map<String, List<String>> map = connection.getHeaderFields();
+            // 遍历所有的响应头字段
+            for (String key : map.keySet()) {
+                System.out.println(key + "--->" + map.get(key));
+            }
+            // 定义 BufferedReader输入流来读取URL的响应
+            in = new BufferedReader(new InputStreamReader(
+                    connection.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+                result += line;
+            }
+        } catch (Exception e) {
+            System.out.println("发送GET请求出现异常！" + e);
+            e.printStackTrace();
+        }
+        // 使用finally块来关闭输入流
+        finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return result;
+    }
+
+    public static String getCacheDir(Context context) {
+        String cachePath;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            cachePath = context.getExternalCacheDir().getPath();
+        } else {
+            cachePath = context.getCacheDir().getPath();
+        }
+        return cachePath;
+    }
+
+    private void DownloadApp(String url,String version){
+        File file = new File(getCacheDir(mActivity), "cold.wallet_v"  + version + ".apk");
+        if (file.exists()) {
+            systems.v.wallet.utils.IntentUtils.installApk(mActivity, file);
+            return;
+        }
+        systems.v.wallet.utils.DownloadUtil.DownloadParam downloadParam = new systems.v.wallet.utils.DownloadUtil.DownloadParam(url, file);
+        new systems.v.wallet.utils.DownloadUtil(new systems.v.wallet.utils.DownloadUtil.DownloadCallBack() {
+            @Override
+            public void downLoadStart(systems.v.wallet.utils.DownloadUtil.DownloadParam param) {
+//                pb_update.setVisibility(View.VISIBLE);
+//                tv_update.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onProgressUpdate(systems.v.wallet.utils.DownloadUtil.DownloadParam param, int downloadSize, int totalSize) {
+//                pb_update.setMax(totalSize);
+//                pb_update.setProgress(downloadSize);
+            }
+
+            @Override
+            public void downloadEnd(systems.v.wallet.utils.DownloadUtil.DownloadParam param) {
+                if (param.getSaveFile().exists()) {
+                    systems.v.wallet.utils.IntentUtils.installApk(mActivity, param.getSaveFile());
+                }
+//                pb_update.setVisibility(View.GONE);
+//                tv_update.setVisibility(View.VISIBLE);
+            }
+        }).download(downloadParam);
     }
 
     @Override
