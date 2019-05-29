@@ -53,18 +53,27 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
 
-        <!-- 可选-->
-        <activity android:name="com.pgyersdk.feedback.FeedbackActivity"/>
-        <!-- Jar 包集成的方式 必填 -->
+        <!--&lt;!&ndash; 可选&ndash;&gt;-->
+        <!--<activity android:name="com.pgyersdk.feedback.FeedbackActivity"/>-->
+        <!--&lt;!&ndash; Jar 包集成的方式 必填 &ndash;&gt;-->
+        <!--<provider-->
+            <!--android:name="com.pgyersdk.PgyerProvider"-->
+            <!--android:authorities="systems.v.coldWallet.com.pgyer.provider"-->
+            <!--android:exported="false"/>-->
+        <!--&lt;!&ndash; 必填 &ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="PGYER_APPID"-->
+            <!--android:value="83f86064b4f05d507d1d956447947463" >-->
+        <!--</meta-data>-->
         <provider
-            android:name="com.pgyersdk.PgyerProvider"
-            android:authorities="systems.v.coldWallet.com.pgyer.provider"
-            android:exported="false"/>
-        <!-- 必填 -->
-        <meta-data
-            android:name="PGYER_APPID"
-            android:value="83f86064b4f05d507d1d956447947463" >
-        </meta-data>
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="systems.v.wallet.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/external_storage_path" />
+        </provider>
 
         <activity
             android:name="systems.v.coldwallet.ui.view.SplashActivity"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path name="my_images" path="Pictures"/>
+    <files-path name="file_path" path="." /> <!--getFilesDir()-->
+    <cache-path name="cache_path" path="." /> <!--getCacheDir()-->
+<!--    <external-path name="external_path" path="." /> &lt;!&ndash;Environment.getExternalStorageDirectory()&ndash;&gt;-->
+    <external-files-path name="external_files_path" path="." /> <!--getExternalFilesDir()-->
+    <external-cache-path name="external_cache_path" path="." /> <!--getExternalCacheDir()-->
+</paths>
