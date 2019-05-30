@@ -59,30 +59,34 @@ public class SplashActivity extends BaseActivity {
                     String val = data.getString("value");
                     try {
                         JSONObject object = new JSONObject(val);
-                        final  int serverVersion = object.getJSONObject("data").getInt("coldAppVersion");
-                        if(serverVersion > GetCurrentAppVersion()){
-                            if (mUpdateDialog == null) {
-                                mUpdateDialog = new AlertDialog.Builder(mActivity)
-                                        .setTitle(R.string.update_title)
-                                        .setMessage("")
-                                        .setPositiveButton(R.string.basic_alert_dialog_confirm, new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                DownloadApp(appUrl,String.valueOf(serverVersion));
-                                            }
-                                        })
-                                        .setNegativeButton(R.string.basic_alert_dialog_cancel, new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                dialog.dismiss();
-                                                launch();
-                                            }
-                                        }).create();
+                        if(object.getString("message").equals("SUCCESS")) {
+                            final  int serverVersion = object.getJSONObject("data").getInt("hotAppVersion");
+                            if(serverVersion > GetCurrentAppVersion()){
+                                if (mUpdateDialog == null) {
+                                    mUpdateDialog = new AlertDialog.Builder(mActivity)
+                                            .setTitle(R.string.update_title)
+                                            .setMessage("")
+                                            .setPositiveButton(R.string.basic_alert_dialog_confirm, new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    DownloadApp(appUrl,String.valueOf(serverVersion));
+                                                }
+                                            })
+                                            .setNegativeButton(R.string.basic_alert_dialog_cancel, new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                    launch();
+                                                }
+                                            }).create();
+                                }
+                                mUpdateDialog.setCanceledOnTouchOutside(false);
+                                mUpdateDialog.show();
                             }
-                            mUpdateDialog.setCanceledOnTouchOutside(false);
-                            mUpdateDialog.show();
-                        }
-                        else {
+                            else {
+                                launch();
+                            }
+                        } else {
                             launch();
                         }
                     } catch (JSONException e) {
