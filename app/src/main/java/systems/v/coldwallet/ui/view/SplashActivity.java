@@ -60,7 +60,7 @@ public class SplashActivity extends BaseActivity {
                     try {
                         JSONObject object = new JSONObject(val);
                         if(object.getString("message").equals("SUCCESS")) {
-                            final  int serverVersion = object.getJSONObject("data").getInt("hotAppVersion");
+                            final  int serverVersion = object.getJSONObject("data").getInt("coldAppVersion");
                             if(serverVersion > GetCurrentAppVersion()){
                                 if (mUpdateDialog == null) {
                                     mUpdateDialog = new AlertDialog.Builder(mActivity)
