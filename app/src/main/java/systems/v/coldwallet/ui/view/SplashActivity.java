@@ -42,7 +42,6 @@ import systems.v.wallet.basic.AlertDialog;
 import systems.v.wallet.basic.utils.FileUtil;
 
 public class SplashActivity extends BaseActivity {
-    static String  appUrl = "https://link-e-pro.oss-cn-beijing.aliyuncs.com/wallet/cold.wallet_release.apk";
     static String  serverUrl = "http://version.t.top/v1/appVsersion";
     private Dialog mUpdateDialog;
     @Override
@@ -61,6 +60,7 @@ public class SplashActivity extends BaseActivity {
                         JSONObject object = new JSONObject(val);
                         if(object.getString("message").equals("SUCCESS")) {
                             final  int serverVersion = object.getJSONObject("data").getInt("coldAppVersion");
+                            final  String  appUrl = object.getJSONObject("data").getString("coldAndroidUrl");
                             if(serverVersion > GetCurrentAppVersion()){
                                 if (mUpdateDialog == null) {
                                     mUpdateDialog = new AlertDialog.Builder(mActivity)
