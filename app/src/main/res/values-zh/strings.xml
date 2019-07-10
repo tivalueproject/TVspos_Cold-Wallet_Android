@@ -12,7 +12,7 @@
     <string name="password_input">输入密码</string>
     <string name="password_input_tips">请输入已设置的钱包密码</string>
     <string name="password_wrong">密码错误</string>
-    <string name="copy_right">2018 V SYSTEMS ALL rights reserved</string>
+    <string name="copy_right">2018 TV ALL rights reserved</string>
     <string name="grant_permissions">请同意全部权限申请</string>
     <string name="version">Version %1$s</string>
     <string name="wallet_info">TV Wallet Cold是一款高安全性的冷钱包。</string>
